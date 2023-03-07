@@ -1,4 +1,4 @@
-import { FC, createContext, useMemo, useState } from 'react'
+import { FC, createContext, useState } from 'react'
 
 export enum Theme {
   LIGHT = 'light',
