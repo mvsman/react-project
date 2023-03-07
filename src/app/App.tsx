@@ -2,6 +2,7 @@ import { useTheme } from 'shared/contexts'
 import { cn } from 'shared/lib'
 
 import { Navbar } from 'widgets/navbar'
+import { Sidebar } from 'widgets/sidebar'
 
 import { AppRouter } from './router'
 
@@ -13,7 +14,10 @@ export const App = () => {
   return (
     <div className={cn('app', {}, [theme])}>
       <Navbar />
-      <AppRouter />
+      <div className="page-wrapper">
+        <Sidebar />
+        <AppRouter />
+      </div>
     </div>
   )
 }
