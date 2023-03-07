@@ -1,3 +1,5 @@
+import { Suspense } from 'react'
+
 import { useTheme } from 'shared/contexts'
 import { cn } from 'shared/lib'
 
@@ -13,11 +15,15 @@ export const App = () => {
 
   return (
     <div className={cn('app', {}, [theme])}>
-      <Navbar />
-      <div className="page-wrapper">
-        <Sidebar />
-        <AppRouter />
-      </div>
+      {/* i18n translations might still be loaded by the http backend */}
+      {/* use react's Suspense */}
+      <Suspense fallback="">
+        <Navbar />
+        <div className="page-wrapper">
+          <Sidebar />
+          <AppRouter />
+        </div>
+      </Suspense>
     </div>
   )
 }

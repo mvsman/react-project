@@ -1,8 +1,9 @@
 import { FC } from 'react'
+import { useTranslation } from 'react-i18next'
 
 import { cn } from 'shared/lib'
 
-import { ThemeSwitcher } from 'features'
+import { LangSwitcher, ThemeSwitcher } from 'features'
 import { AppLink } from 'shared/components/app-link'
 
 import styles from './navbar.module.scss'
@@ -11,12 +12,17 @@ interface NavbarProps {
   className?: string
 }
 
-export const Navbar: FC<NavbarProps> = ({ className, children }) => (
-  <div className={cn(styles.navbar, {}, [className])}>
-    <ThemeSwitcher />
-    <div className={styles.links}>
-      <AppLink to={'/'}>Main</AppLink>
-      <AppLink to={'/about'}>About</AppLink>
+export const Navbar: FC<NavbarProps> = ({ className, children }) => {
+  const { t } = useTranslation()
+
+  return (
+    <div className={cn(styles.navbar, {}, [className])}>
+      <ThemeSwitcher />
+      <LangSwitcher />
+      <div className={styles.links}>
+        <AppLink to={'/'}>{t('main', { ns: 'main' })}</AppLink>
+        <AppLink to={'/about'}>{t('about', { ns: 'about' })}</AppLink>
+      </div>
     </div>
-  </div>
-)
+  )
+}

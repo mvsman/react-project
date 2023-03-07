@@ -9,7 +9,7 @@ interface SidebarProps {
 }
 
 export const Sidebar: FC<SidebarProps> = ({ className }) => {
-  const [collapse, setCollapse] = useState(false)
+  const [collapse, setCollapse] = useState(true)
 
   const handleCollapse = () => setCollapse((prev) => !prev)
 
