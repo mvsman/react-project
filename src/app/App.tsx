@@ -1,17 +1,17 @@
-import { Suspense } from 'react'
+import { Suspense } from 'react';
 
-import { useTheme } from 'shared/contexts'
-import { cn } from 'shared/lib'
+import { useTheme } from 'shared/contexts';
+import { cn } from 'shared/lib';
 
-import { Navbar } from 'widgets/navbar'
-import { Sidebar } from 'widgets/sidebar'
+import { Navbar } from 'widgets/navbar';
+import { Sidebar } from 'widgets/sidebar';
 
-import { AppRouter } from './router'
+import { AppRouter } from './router';
 
-import './styles/index.scss'
+import './styles/index.scss';
 
 export const App = () => {
-  const { theme } = useTheme()
+  const { theme } = useTheme();
 
   return (
     <div className={cn('app', {}, [theme])}>
@@ -25,5 +25,5 @@ export const App = () => {
         </div>
       </Suspense>
     </div>
-  )
-}
+  );
+};

@@ -1,3 +1,3 @@
-import { AppRouter } from './components/app-router'
+import { AppRouter } from './components/app-router';
 
-export { AppRouter }
+export { AppRouter };

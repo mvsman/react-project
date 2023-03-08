@@ -1,13 +1,13 @@
-import { FC } from 'react'
+import { FC } from 'react';
 
-import { cn } from 'shared/lib'
-import { useTheme, Theme } from 'shared/contexts'
-import { Button } from 'shared/components/button'
+import { cn } from 'shared/lib';
+import { useTheme, Theme } from 'shared/contexts';
+import { Button } from 'shared/components/button';
 
-import MoonIcon from './icons/moon.svg'
-import SunIcon from './icons/sun.svg'
+import MoonIcon from './icons/moon.svg';
+import SunIcon from './icons/sun.svg';
 
-import styles from './theme-switcher.module.scss'
+import styles from './theme-switcher.module.scss';
 
 interface ThemeSwitcherProps {
   className?: string
@@ -17,7 +17,7 @@ export const ThemeSwitcher: FC<ThemeSwitcherProps> = ({
   className,
   ...props
 }) => {
-  const { theme, toggleTheme } = useTheme()
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <Button
@@ -27,5 +27,5 @@ export const ThemeSwitcher: FC<ThemeSwitcherProps> = ({
     >
       {theme === Theme.DARK ? <SunIcon /> : <MoonIcon />}
     </Button>
-  )
-}
+  );
+};

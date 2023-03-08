@@ -1,5 +1,5 @@
-import { BuildOptions } from './types/config'
-import type { Configuration as DevServerConfiguration } from 'webpack-dev-server'
+import type { Configuration as DevServerConfiguration } from 'webpack-dev-server';
+import { BuildOptions } from './types/config';
 
 export function buildDevServer(options: BuildOptions): DevServerConfiguration {
   return {
@@ -9,5 +9,5 @@ export function buildDevServer(options: BuildOptions): DevServerConfiguration {
     // useful for SPA that utilise the HTML5 History API.
     historyApiFallback: true,
     hot: true,
-  }
+  };
 }

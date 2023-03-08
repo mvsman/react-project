@@ -1,12 +1,13 @@
-import { FC, HTMLAttributes } from 'react'
+import { FC, HTMLAttributes } from 'react';
 
-import { cn } from 'shared/lib'
+import { cn } from 'shared/lib';
 
-import styles from './button.module.scss'
+import styles from './button.module.scss';
 
 interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
-  className?: string
-  variant?: 'primary' | 'secondary' | 'clean'
+  className?: string;
+  variant?: 'primary' | 'secondary' | 'clean';
+  type?: 'button' | 'submit';
 }
 
 export const Button: FC<ButtonProps> = ({
@@ -16,9 +17,10 @@ export const Button: FC<ButtonProps> = ({
   ...props
 }) => (
   <button
+    type="button"
     className={cn(styles.button, {}, [className, styles[variant]])}
     {...props}
   >
     {children}
   </button>
-)
+);

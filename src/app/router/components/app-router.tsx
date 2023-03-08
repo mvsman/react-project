@@ -1,7 +1,7 @@
-import { Suspense } from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { Suspense } from 'react';
+import { Route, Routes } from 'react-router-dom';
 
-import { routes } from '../config/router-config'
+import { routes } from '../config/router-config';
 
 export const AppRouter = () => (
   <div className="page">
@@ -13,4 +13,4 @@ export const AppRouter = () => (
       </Routes>
     </Suspense>
   </div>
-)
+);
