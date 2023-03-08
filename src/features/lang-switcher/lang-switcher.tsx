@@ -20,6 +20,7 @@ export const LangSwitcher: FC<LangSwitcherProps> = ({ className }) => {
   return (
     <Button
       className={cn(styles.switcher, {}, [className])}
+      variant="clean"
       onClick={handleChangeLang}
     >
       {t('lang')}
