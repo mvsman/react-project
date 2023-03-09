@@ -3,11 +3,9 @@ import { Link, LinkProps } from 'react-router-dom';
 
 import { cn } from 'shared/lib';
 
-import styles from './app-link.module.scss';
-
 interface AppLinkProps extends LinkProps {
-  to: string
-  className?: string
+  to: string;
+  className?: string;
 }
 
 export const AppLink: FC<AppLinkProps> = ({
@@ -16,7 +14,7 @@ export const AppLink: FC<AppLinkProps> = ({
   className,
   ...props
 }) => (
-  <Link className={cn(styles.link, {}, [className])} {...props} to={to}>
+  <Link className={cn('', {}, [className])} {...props} to={to}>
     {children}
   </Link>
 );

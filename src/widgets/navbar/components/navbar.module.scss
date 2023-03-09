@@ -1,10 +1,8 @@
 .navbar {
   width: 100%;
   height: var(--navbar-height);
-
   background-color: var(--bg-secondary);
   color: var(--text-secondary);
-
   display: flex;
   align-items: center;
   padding: 20px;
@@ -12,7 +10,12 @@
 
 .links {
   margin-left: auto;
-
   display: flex;
+  gap: 15px;
+}
+
+.switchers {
+  display: flex;
+  align-items: center;
   gap: 15px;
 }

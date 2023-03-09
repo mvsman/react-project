@@ -4,10 +4,8 @@ import { useTranslation } from 'react-i18next';
 import { Button } from 'shared/components/button';
 import { cn } from 'shared/lib';
 
-import styles from './lang-switcher.module.scss';
-
 interface LangSwitcherProps {
-  className?: string
+  className?: string;
 }
 
 export const LangSwitcher: FC<LangSwitcherProps> = ({ className }) => {
@@ -19,7 +17,7 @@ export const LangSwitcher: FC<LangSwitcherProps> = ({ className }) => {
 
   return (
     <Button
-      className={cn(styles.switcher, {}, [className])}
+      className={cn('', {}, [className])}
       variant="clean"
       onClick={handleChangeLang}
     >

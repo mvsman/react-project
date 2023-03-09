@@ -17,8 +17,10 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
 
   return (
     <div className={cn(styles.navbar, {}, [className])}>
-      <ThemeSwitcher />
-      <LangSwitcher />
+      <div className={styles.switchers}>
+        <ThemeSwitcher />
+        <LangSwitcher />
+      </div>
       <div className={styles.links}>
         <AppLink to="/">{t('main', { ns: 'main' })}</AppLink>
         <AppLink to="/about">{t('about', { ns: 'about' })}</AppLink>

@@ -1,27 +1,22 @@
 .button {
   background: none;
   color: inherit;
-
   border: none;
   border-radius: 6px;
   outline: none;
-
   padding: 6px 10px;
-
   cursor: pointer;
 }
 
 .primary {
   background-color: var(--bg-primary);
   color: var(--text-primary);
-
   border: 1px solid var(--text-primary);
 }
 
 .secondary {
   background-color: var(--bg-secondary);
   color: var(--text-secondary);
-
   border: 1px solid var(--text-secondary);
 }
 
