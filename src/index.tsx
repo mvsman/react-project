@@ -5,7 +5,7 @@ import { App } from 'app/App';
 import { ErrorBoundary } from 'app/providers/error-boundary';
 import { ThemeProvider } from 'shared/contexts';
 
-import './app/i18n';
+import './app/i18n/i18n';
 
 render(
   <BrowserRouter>

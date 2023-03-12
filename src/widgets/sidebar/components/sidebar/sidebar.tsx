@@ -15,11 +15,17 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
 
   return (
     <div
+      data-testid="sidebar"
       className={cn(styles.sidebar, { [styles.collapse]: collapse }, [
         className,
       ])}
     >
-      <button type="button" onClick={handleCollapse}>
+      <button
+        data-testid="sidebar-toggle"
+        type="button"
+        onClick={handleCollapse}
+        // eslint-disable-next-line i18next/no-literal-string
+      >
         toggle
       </button>
     </div>
