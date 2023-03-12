@@ -6,7 +6,7 @@ import { cn } from 'shared/lib';
 import { Navbar } from 'widgets/navbar';
 import { Sidebar } from 'widgets/sidebar';
 
-import { AppRouter } from './router';
+import { AppRouter } from './providers/router';
 
 import './styles/index.scss';
 
