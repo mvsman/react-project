@@ -2,9 +2,19 @@
   height: calc(100vh - var(--navbar-height));
   width: var(--sidebar-full-width);
   flex-shrink: 0;
+  position: relative;
   background-color: var(--bg-secondary);
   color: var(--text-secondary);
   transition: width 0.2s ease-out;
+}
+
+.switchers {
+  position: absolute;
+  bottom: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
 }
 
 .collapse {

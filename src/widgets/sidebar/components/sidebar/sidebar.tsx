@@ -1,6 +1,8 @@
 import { FC, useState } from 'react';
 
+import { LangSwitcher, ThemeSwitcher } from 'features';
 import { cn } from 'shared/lib';
+import { Button } from 'shared/components/button';
 
 import styles from './sidebar.module.scss';
 
@@ -20,14 +22,18 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
         className,
       ])}
     >
-      <button
+      <Button
         data-testid="sidebar-toggle"
         type="button"
         onClick={handleCollapse}
         // eslint-disable-next-line i18next/no-literal-string
       >
         toggle
-      </button>
+      </Button>
+      <div className={styles.switchers}>
+        <ThemeSwitcher />
+        <LangSwitcher />
+      </div>
     </div>
   );
 };

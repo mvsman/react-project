@@ -21,6 +21,7 @@ export const ThemeSwitcher: FC<ThemeSwitcherProps> = ({
     <Button
       onClick={toggleTheme}
       className={cn('', {}, [className])}
+      variant="clean"
       {...props}
     >
       {theme === Theme.DARK ? <SunIcon /> : <MoonIcon />}

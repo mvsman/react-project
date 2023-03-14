@@ -6,14 +6,14 @@ import styles from './button.module.scss';
 
 interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
   className?: string;
-  variant?: 'primary' | 'secondary' | 'clean';
+  variant?: 'primary' | 'secondary' | 'outline' | 'clean';
   type?: 'button' | 'submit';
 }
 
 export const Button: FC<ButtonProps> = ({
   children,
   className,
-  variant,
+  variant = 'primary',
   ...props
 }) => (
   <button

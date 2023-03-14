@@ -20,6 +20,11 @@
   border: 1px solid var(--text-secondary);
 }
 
+.outline {
+  border: 1px solid var(--text-primary);
+  color: var(--text-primary);
+}
+
 .clean {
   padding: 0;
   border-radius: 0;
