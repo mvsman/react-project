@@ -14,9 +14,10 @@
     "stylelint:fix": "npx stylelint \"**/*.scss\" --fix",
     "test:jest": "jest --config ./config/jest/jest.config.ts",
     "test:loki": "loki test",
+    "test:loki:ci": "loki --requireReference --reactUri file:./storybook-static",
     "test:loki:ok": "loki approve",
     "storybook": "start-storybook -p 6006 -c ./config/storybook",
-    "build-storybook": "build-storybook -c ./config/storybook"
+    "storybook:build": "build-storybook -c ./config/storybook"
   },
   "keywords": [],
   "author": "",
