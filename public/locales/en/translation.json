@@ -1,5 +1,7 @@
 {
   "lang": "EN",
+  "main": "Main",
+  "about": "About",
   "notFound": "Page not found",
   "pageError": "Something went wrong :(",
   "pageErrorButton": "Reload the page"

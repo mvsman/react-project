@@ -1,7 +1,10 @@
 .app.dark {
   --bg-primary: #343434;
   --bg-secondary: #1b1b1b;
+  --bg-primary-invert: #fff;
+  --bg-secondary-invert: #cdcdcd;
   --text-primary: #cdcdcd;
   --text-secondary: #fff;
-  --text-invert: #1b1b1b;
+  --text-primary-invert: #343434;
+  --text-secondary-invert: #1b1b1b;
 }

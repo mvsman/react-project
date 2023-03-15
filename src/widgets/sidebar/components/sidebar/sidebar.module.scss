@@ -3,8 +3,8 @@
   width: var(--sidebar-full-width);
   flex-shrink: 0;
   position: relative;
-  background-color: var(--bg-secondary);
-  color: var(--text-secondary);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
   transition: width 0.2s ease-out;
 }
 
@@ -17,6 +17,42 @@
   width: 100%;
 }
 
-.collapse {
+.nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+  width: 100%;
+
+  &_item {
+    display: flex;
+    align-items: center;
+  }
+
+  &_link {
+    margin-left: 10px;
+    opacity: 1;
+  }
+
+  &_icon {
+    fill: var(--text-primary);
+  }
+}
+
+.sidebar_collapsed {
   width: var(--sidebar-width);
+
+  .nav_link {
+    opacity: 0;
+    width: 0;
+    transition: 0.1s opacity;
+  }
+}
+
+.collapse_button {
+  position: absolute;
+  right: -32px;
+  bottom: 32px;
 }

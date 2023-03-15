@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 import { cn } from 'shared/lib';
 import { useTheme, Theme } from 'shared/contexts';
-import { Button } from 'shared/components/button';
+import { Button, ButtonTheme } from 'shared/components/button';
 
 import MoonIcon from './icons/moon.svg';
 import SunIcon from './icons/sun.svg';
@@ -21,7 +21,7 @@ export const ThemeSwitcher: FC<ThemeSwitcherProps> = ({
     <Button
       onClick={toggleTheme}
       className={cn('', {}, [className])}
-      variant="clean"
+      theme={ButtonTheme.CLEAN}
       {...props}
     >
       {theme === Theme.DARK ? <SunIcon /> : <MoonIcon />}

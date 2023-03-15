@@ -24,18 +24,23 @@ jobs:
 
       - name: production build
         run: npm run build:prod
+        if: always()
 
       - name: eslint
         run: npm run eslint
+        if: always()
 
       - name: stylelint
         run: npm run stylelint
 
       - name: unit testing (jest)
         run: npm run test:jest
+        if: always()
 
       - name: storybook build
         run: npm run storybook:build
+        if: always()
 
       - name: screenshot testing (loki)
         run: npm run test:loki:ci
+        if: always()
