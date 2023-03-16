@@ -37,6 +37,7 @@ module.exports = {
       'error',
       { markupOnly: true, ignoreAttribute: ['data-testid'] },
     ],
+    'linebreak-style': 'off',
   },
   globals: {
     __IS_DEV__: true,
