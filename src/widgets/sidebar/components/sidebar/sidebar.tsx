@@ -26,14 +26,14 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
   return (
     <div
       data-testid="sidebar"
-      className={cn(styles.sidebar, { [styles.sidebar_collapsed]: collapse }, [
+      className={cn(styles.sidebar, { [styles.sidebarCollapsed]: collapse }, [
         className,
       ])}
     >
       <Button
         data-testid="sidebar-toggle"
         type="button"
-        className={styles.collapse_button}
+        className={styles.collapseButton}
         theme={ButtonTheme.BACKGROUND}
         size={ButtonSize.L}
         square
