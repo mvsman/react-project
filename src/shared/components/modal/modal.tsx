@@ -1,4 +1,4 @@
-import { FC, ReactNode, useRef, useEffect, useCallback } from 'react';
+import { FC, ReactNode, useEffect, useCallback } from 'react';
 
 import { cn } from 'shared/lib';
 import { Portal } from 'shared/components/portal';
@@ -18,8 +18,6 @@ export const Modal: FC<ModalProps> = ({
   isOpen,
   onClose,
 }) => {
-  const contentRef = useRef<HTMLDivElement | null>(null);
-
   const handleClose = useCallback(() => {
     if (onClose) {
       onClose();
@@ -50,11 +48,7 @@ export const Modal: FC<ModalProps> = ({
         ])}
       >
         <div className={styles.overlay} onClick={handleClose}>
-          <div
-            ref={contentRef}
-            className={styles.content}
-            onClick={(e) => e.stopPropagation()}
-          >
+          <div className={styles.content} onClick={(e) => e.stopPropagation()}>
             {children}
           </div>
         </div>
