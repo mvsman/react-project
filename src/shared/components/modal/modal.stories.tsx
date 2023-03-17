@@ -3,21 +3,28 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook';
 import { Theme } from 'shared/contexts';
 
-import { Loader } from './loader';
+import { Modal } from './modal';
 
 export default {
-  title: 'shared/loader',
-  component: Loader,
+  title: 'shared/modal',
+  component: Modal,
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as ComponentMeta<typeof Loader>;
+  args: {
+    isOpen: true,
+  },
+} as ComponentMeta<typeof Modal>;
 
-const Template: ComponentStory<typeof Loader> = () => <Loader />;
+const Template: ComponentStory<typeof Modal> = (args) => <Modal {...args} />;
 
 export const Light = Template.bind({});
-Light.args = {};
+Light.args = {
+  children: 'Modal content',
+};
 
 export const Dark = Template.bind({});
-Dark.args = {};
+Dark.args = {
+  children: 'Modal content',
+};
 Dark.decorators = [ThemeDecorator(Theme.DARK)];

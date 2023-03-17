@@ -4,5 +4,6 @@
   "about": "О сайте",
   "notFound": "Страница не найдена",
   "pageError": "Упс! Что-то пошло не так :(",
-  "pageErrorButton": "Обновить страницу"
+  "pageErrorButton": "Обновить страницу",
+  "signIn": "Войти"
 }

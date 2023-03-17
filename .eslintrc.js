@@ -13,7 +13,7 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint', 'i18next'],
+  plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks'],
   rules: {
     'import/prefer-default-export': 'off',
     'react/function-component-definition': [
@@ -38,6 +38,11 @@ module.exports = {
       { markupOnly: true, ignoreAttribute: ['data-testid'] },
     ],
     'linebreak-style': 'off',
+    'jsx-a11y/click-events-have-key-events': 'off',
+    'jsx-a11y/no-static-element-interactions': 'off',
+    'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
+    'react-hooks/exhaustive-deps': 'warn', // Checks effect dependencies
+    'object-curly-newline': 'off',
   },
   globals: {
     __IS_DEV__: true,

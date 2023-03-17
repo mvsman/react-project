@@ -8,8 +8,6 @@ import { Sidebar } from 'widgets/sidebar';
 
 import { AppRouter } from './providers/router';
 
-import './styles/index.scss';
-
 export const App = () => {
   const { theme } = useTheme();
 

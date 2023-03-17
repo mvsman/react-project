@@ -4,5 +4,6 @@
   "about": "About",
   "notFound": "Page not found",
   "pageError": "Something went wrong :(",
-  "pageErrorButton": "Reload the page"
+  "pageErrorButton": "Reload the page",
+  "signIn": "Sign in"
 }
