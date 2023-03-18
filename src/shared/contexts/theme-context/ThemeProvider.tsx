@@ -1,5 +1,5 @@
 // eslint-disable-next-line object-curly-newline
-import { FC, createContext, useState, useMemo } from 'react';
+import { FC, createContext, useState, useMemo, useEffect } from 'react';
 
 export enum Theme {
   LIGHT = 'light',
@@ -23,6 +23,8 @@ export const LOCAL_STORAGE_THEME_KEY = 'theme';
 const defaultTheme =
   (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme) || Theme.LIGHT;
 
+const bodyNode = document.body;
+
 const ThemeProvider: FC<ThemeProviderProps> = ({ children, initTheme }) => {
   const [theme, setTheme] = useState<Theme>(initTheme ?? defaultTheme);
 
@@ -33,6 +35,10 @@ const ThemeProvider: FC<ThemeProviderProps> = ({ children, initTheme }) => {
     }),
     [theme]
   );
+
+  useEffect(() => {
+    bodyNode.setAttribute('theme', theme);
+  }, [theme]);
 
   return (
     <ThemeContext.Provider value={defaultValues}>
