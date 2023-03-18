@@ -33,11 +33,9 @@ export const Modal: FC<ModalProps> = ({
 
     if (isOpen) {
       window.addEventListener('keydown', onEscapeClose);
-    }
-
-    return () => {
+    } else {
       window.removeEventListener('keydown', onEscapeClose);
-    };
+    }
   }, [handleClose, isOpen]);
 
   return (

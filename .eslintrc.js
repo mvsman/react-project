@@ -54,5 +54,11 @@ module.exports = {
         'i18next/no-literal-string': 'off',
       },
     },
+    {
+      files: ['src/entities/**/model/slice/*.ts'],
+      rules: {
+        'no-param-reassign': ['error', { props: false }],
+      },
+    },
   ],
 };
