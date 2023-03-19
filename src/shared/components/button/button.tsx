@@ -1,4 +1,4 @@
-import { FC, HTMLAttributes } from 'react';
+import { ButtonHTMLAttributes, FC } from 'react';
 
 import { cn } from 'shared/lib';
 
@@ -17,7 +17,7 @@ export enum ButtonSize {
   XL = 'size_xl',
 }
 
-interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
   theme?: ButtonTheme;
   type?: 'button' | 'submit';

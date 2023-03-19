@@ -2,7 +2,10 @@ import { FC, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { RoutesPath } from 'app/providers/router/config/router-config';
-import { LangSwitcher, ThemeSwitcher } from 'features';
+
+import { ThemeSwitcher } from 'features/theme-switcher';
+import { LangSwitcher } from 'features/lang-switcher';
+
 import { cn } from 'shared/lib';
 import { AppLink } from 'shared/components/app-link';
 import { Button, ButtonSize, ButtonTheme } from 'shared/components/button';
