@@ -6,7 +6,7 @@ import { Theme } from 'shared/contexts';
 import { AppLink } from './app-link';
 
 export default {
-  title: 'widgets/app-link',
+  title: 'shared/app-link',
   component: AppLink,
   argTypes: {
     backgroundColor: { control: 'color' },

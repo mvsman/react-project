@@ -1,64 +1,66 @@
-import { SyntheticEvent, useState } from 'react';
+import { memo, SyntheticEvent, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { Button } from 'shared/components/button';
 import { Input } from 'shared/components/input';
+import { Text, TextTheme } from 'shared/components/text';
+
+import { loginActions } from '../../model/slice/login-slice';
+import { getLoginState } from '../../model/selectors/get-login-state/get-login-state';
+import { loginByUsername } from '../../model/services/login-by-username/login-by-username';
 
 import styles from './login-form.module.scss';
 
-export const LoginForm = () => {
+export const LoginForm = memo(() => {
   const { t } = useTranslation();
-  const [form, setForm] = useState({
-    username: '',
-    password: '',
-  });
+  const dispatch = useDispatch();
+  const { username, password, isLoading, error } = useSelector(getLoginState);
 
-  const onSubmit = (e: SyntheticEvent) => {
-    e.preventDefault();
-    const target = e.target as typeof e.target & {
-      username: { value: string };
-      password: { value: string };
-    };
-    const username = target.username.value;
-    const password = target.password.value;
-    console.log(username, password);
-    console.log(form);
-  };
+  const onSubmit = useCallback(
+    (e: SyntheticEvent) => {
+      e.preventDefault();
+      dispatch(loginByUsername({ username, password }));
+    },
+    [dispatch, password, username]
+  );
 
-  const onChangeUsername = (username: string) => {
-    setForm((prev) => ({
-      ...prev,
-      username,
-    }));
-  };
+  const onChangeUsername = useCallback(
+    (username: string) => {
+      dispatch(loginActions.setUsername(username));
+    },
+    [dispatch]
+  );
 
-  const onChangePassword = (password: string) => {
-    setForm((prev) => ({
-      ...prev,
-      password,
-    }));
-  };
+  const onChangePassword = useCallback(
+    (password: string) => {
+      dispatch(loginActions.setPassword(password));
+    },
+    [dispatch]
+  );
 
   return (
     <form className={styles.form} onSubmit={onSubmit}>
+      <Text title={t('auth')} />
+      {error && <Text text={t('invalidAuthData')} theme={TextTheme.ERROR} />}
       <Input
         type="text"
         name="username"
         label={t('username')}
         autoFocus
-        value={form.username}
+        value={username}
         onChange={onChangeUsername}
       />
       <Input
         type="password"
         name="password"
         label={t('password')}
-        value={form.password}
+        value={password}
         onChange={onChangePassword}
       />
-      <Button className={styles.button} type="submit">
+      <Button className={styles.button} type="submit" disabled={isLoading}>
         {t('signIn')}
       </Button>
     </form>
   );
-};
+});

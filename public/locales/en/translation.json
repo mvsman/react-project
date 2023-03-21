@@ -7,5 +7,8 @@
   "pageErrorButton": "Reload the page",
   "signIn": "Sign in",
   "username": "Username",
-  "password": "Password"
+  "password": "Password",
+  "auth": "Authorization",
+  "logout": "Logout",
+  "invalidAuthData": "Invalid username or password"
 }

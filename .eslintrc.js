@@ -55,7 +55,7 @@ module.exports = {
       },
     },
     {
-      files: ['src/entities/**/model/slice/*.ts'],
+      files: ['src/**/model/slice/*.ts'],
       rules: {
         'no-param-reassign': ['error', { props: false }],
       },

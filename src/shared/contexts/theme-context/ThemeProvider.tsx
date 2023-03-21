@@ -1,5 +1,6 @@
 // eslint-disable-next-line object-curly-newline
 import { FC, createContext, useState, useMemo, useEffect } from 'react';
+import { LOCAL_STORAGE_THEME_KEY } from '../../const/localstorage';
 
 export enum Theme {
   LIGHT = 'light',
@@ -16,8 +17,6 @@ interface ThemeProviderProps {
 }
 
 export const ThemeContext = createContext<ThemeContextProps>({});
-
-export const LOCAL_STORAGE_THEME_KEY = 'theme';
 
 // eslint-disable-next-line operator-linebreak
 const defaultTheme =
