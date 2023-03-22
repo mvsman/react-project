@@ -8,8 +8,13 @@ import { Text, TextTheme } from 'shared/components/text';
 import { DynamicModule, ReducersList } from 'shared/lib';
 
 import { loginActions, loginReducer } from '../../model/slice/login-slice';
-import { getLoginState } from '../../model/selectors/get-login-state/get-login-state';
 import { loginByUsername } from '../../model/services/login-by-username/login-by-username';
+import {
+  getLoginUsername,
+  getLoginError,
+  getLoginLoading,
+  getLoginPassword,
+} from '../../model/selectors';
 
 import styles from './login-form.module.scss';
 
@@ -21,7 +26,10 @@ const LoginForm = memo(() => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
-  const { username, password, isLoading, error } = useSelector(getLoginState);
+  const username = useSelector(getLoginUsername);
+  const password = useSelector(getLoginPassword);
+  const isLoading = useSelector(getLoginLoading);
+  const error = useSelector(getLoginError);
 
   const onSubmit = useCallback(
     (e: SyntheticEvent) => {
