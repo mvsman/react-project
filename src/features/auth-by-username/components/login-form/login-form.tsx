@@ -5,16 +5,22 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Button } from 'shared/components/button';
 import { Input } from 'shared/components/input';
 import { Text, TextTheme } from 'shared/components/text';
+import { DynamicModule, ReducersList } from 'shared/lib';
 
-import { loginActions } from '../../model/slice/login-slice';
+import { loginActions, loginReducer } from '../../model/slice/login-slice';
 import { getLoginState } from '../../model/selectors/get-login-state/get-login-state';
 import { loginByUsername } from '../../model/services/login-by-username/login-by-username';
 
 import styles from './login-form.module.scss';
 
-export const LoginForm = memo(() => {
+const usedReducers: ReducersList = {
+  loginForm: loginReducer,
+};
+
+const LoginForm = memo(() => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
+
   const { username, password, isLoading, error } = useSelector(getLoginState);
 
   const onSubmit = useCallback(
@@ -40,27 +46,31 @@ export const LoginForm = memo(() => {
   );
 
   return (
-    <form className={styles.form} onSubmit={onSubmit}>
-      <Text title={t('auth')} />
-      {error && <Text text={t('invalidAuthData')} theme={TextTheme.ERROR} />}
-      <Input
-        type="text"
-        name="username"
-        label={t('username')}
-        autoFocus
-        value={username}
-        onChange={onChangeUsername}
-      />
-      <Input
-        type="password"
-        name="password"
-        label={t('password')}
-        value={password}
-        onChange={onChangePassword}
-      />
-      <Button className={styles.button} type="submit" disabled={isLoading}>
-        {t('signIn')}
-      </Button>
-    </form>
+    <DynamicModule reducers={usedReducers}>
+      <form className={styles.form} onSubmit={onSubmit}>
+        <Text title={t('auth')} />
+        {error && <Text text={t('invalidAuthData')} theme={TextTheme.ERROR} />}
+        <Input
+          type="text"
+          name="username"
+          label={t('username')}
+          autoFocus
+          value={username}
+          onChange={onChangeUsername}
+        />
+        <Input
+          type="password"
+          name="password"
+          label={t('password')}
+          value={password}
+          onChange={onChangePassword}
+        />
+        <Button className={styles.button} type="submit" disabled={isLoading}>
+          {t('signIn')}
+        </Button>
+      </form>
+    </DynamicModule>
   );
 });
+
+export default LoginForm;

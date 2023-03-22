@@ -42,7 +42,9 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
           <Button theme={ButtonTheme.CLEAN} onClick={handleShowModal}>
             {t('signIn')}
           </Button>
-          <LoginModal isOpen={showModal} onClose={handleCloseModal} />
+          {showModal && (
+            <LoginModal isOpen={showModal} onClose={handleCloseModal} />
+          )}
         </>
       ) : (
         <Button theme={ButtonTheme.CLEAN} onClick={handleLogout}>
