@@ -1,5 +1,5 @@
 import { Suspense, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useAppDispatch } from 'shared/lib/hooks/use-app-dispatch';
 import { userActions } from 'entities/user';
 
 import { Navbar } from 'widgets/navbar';
@@ -8,7 +8,7 @@ import { Sidebar } from 'widgets/sidebar';
 import { AppRouter } from './providers/router';
 
 export const App = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(userActions.initAuthData());

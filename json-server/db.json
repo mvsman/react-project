@@ -1,7 +1,16 @@
 {
   "posts": [{ "id": "1", "title": "json-server", "author": "typicode" }],
   "comments": [{ "id": "1", "body": "some comment", "postId": "1" }],
-  "profile": { "name": "typicode" },
+  "profile": {
+    "name": "Vladimir",
+    "lastname": "Mikolin",
+    "age": 26,
+    "currency": "RUB",
+    "country": "Russia",
+    "city": "Yekaterinburg",
+    "username": "mvsman",
+    "avatar": "https://cdn.dribbble.com/users/1162077/screenshots/7495197/2-cat-programmer_4x.png"
+  },
   "users": [
     {
       "id": "1",

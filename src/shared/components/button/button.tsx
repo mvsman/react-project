@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, FC } from 'react';
+import { ButtonHTMLAttributes, memo } from 'react';
 
 import { cn } from 'shared/lib';
 
@@ -25,23 +25,27 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: ButtonSize;
 }
 
-export const Button: FC<ButtonProps> = ({
-  children,
-  className,
-  theme,
-  square = false,
-  size = ButtonSize.M,
-  ...props
-}) => (
-  <button
-    type="button"
-    className={cn(
-      styles.button,
-      { [styles.square]: square, [styles.disabled]: props.disabled },
-      [className, styles[theme], styles[size]]
-    )}
-    {...props}
-  >
-    {children}
-  </button>
+export const Button = memo(
+  ({
+    children,
+    className,
+    theme,
+    square = false,
+    size = ButtonSize.M,
+    type = 'button',
+    ...props
+  }: ButtonProps) => (
+    <button
+      // eslint-disable-next-line react/button-has-type
+      type={type}
+      className={cn(
+        styles.button,
+        { [styles.square]: square, [styles.disabled]: props.disabled },
+        [className, styles[theme], styles[size]]
+      )}
+      {...props}
+    >
+      {children}
+    </button>
+  )
 );

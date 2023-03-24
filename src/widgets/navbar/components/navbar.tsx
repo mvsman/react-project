@@ -1,22 +1,18 @@
-import { FC, useCallback, useState } from 'react';
+import { useCallback, useState, memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import { LoginModal } from 'features/auth-by-username';
 import { getUserAuthData, userActions } from 'entities/user';
 
-import { cn } from 'shared/lib';
+import { useAppDispatch } from 'shared/lib/hooks/use-app-dispatch';
 import { Button, ButtonTheme } from 'shared/components/button';
 
 import styles from './navbar.module.scss';
 
-interface NavbarProps {
-  className?: string;
-}
-
-export const Navbar: FC<NavbarProps> = ({ className }) => {
+export const Navbar = memo(() => {
   const { t } = useTranslation();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const [showModal, setShowModal] = useState<boolean>(false);
 
@@ -36,7 +32,7 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
   }, [dispatch]);
 
   return (
-    <div className={cn(styles.navbar, {}, [className])}>
+    <div className={styles.navbar}>
       {!authData ? (
         <>
           <Button theme={ButtonTheme.CLEAN} onClick={handleShowModal}>
@@ -53,4 +49,4 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
       )}
     </div>
   );
-};
+});

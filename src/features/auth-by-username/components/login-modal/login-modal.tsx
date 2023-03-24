@@ -2,7 +2,7 @@ import { FC, Suspense } from 'react';
 import { Loader } from 'shared/components/loader';
 import { Modal } from 'shared/components/modal';
 
-import { LoginFormAsync } from '../login-form/login-form.async';
+import { LoginFormAsync } from '../login-form/login-form.lazy';
 
 interface LoginModalProps {
   isOpen: boolean;

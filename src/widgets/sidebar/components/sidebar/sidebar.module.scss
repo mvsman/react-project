@@ -26,29 +26,15 @@
   margin-top: 16px;
   width: 100%;
 
-  &_item {
-    display: flex;
-    align-items: center;
-  }
-
   &_link {
-    margin-left: 10px;
     opacity: 1;
-  }
-
-  &_icon {
-    fill: var(--text-primary);
+    width: 100%;
+    transition: all 0.2s;
   }
 }
 
 .sidebarCollapsed {
   width: var(--sidebar-width);
-
-  .nav_link {
-    opacity: 0;
-    width: 0;
-    transition: 0.1s opacity;
-  }
 }
 
 .collapseButton {

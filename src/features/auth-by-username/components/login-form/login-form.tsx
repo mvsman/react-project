@@ -1,7 +1,8 @@
 import { memo, SyntheticEvent, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
+import { useAppDispatch } from 'shared/lib/hooks/use-app-dispatch';
 import { Button } from 'shared/components/button';
 import { Input } from 'shared/components/input';
 import { Text, TextTheme } from 'shared/components/text';
@@ -24,7 +25,7 @@ const usedReducers: ReducersList = {
 
 const LoginForm = memo(() => {
   const { t } = useTranslation();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const username = useSelector(getLoginUsername);
   const password = useSelector(getLoginPassword);

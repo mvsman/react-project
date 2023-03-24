@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { memo } from 'react';
 
 import { cn } from 'shared/lib';
 import { useTheme, Theme } from 'shared/contexts';
@@ -11,20 +11,19 @@ interface ThemeSwitcherProps {
   className?: string;
 }
 
-export const ThemeSwitcher: FC<ThemeSwitcherProps> = ({
-  className,
-  ...props
-}) => {
-  const { theme, toggleTheme } = useTheme();
+export const ThemeSwitcher = memo(
+  ({ className, ...props }: ThemeSwitcherProps) => {
+    const { theme, toggleTheme } = useTheme();
 
-  return (
-    <Button
-      onClick={toggleTheme}
-      className={cn('', {}, [className])}
-      theme={ButtonTheme.CLEAN}
-      {...props}
-    >
-      {theme === Theme.DARK ? <SunIcon /> : <MoonIcon />}
-    </Button>
-  );
-};
+    return (
+      <Button
+        onClick={toggleTheme}
+        className={cn('', {}, [className])}
+        theme={ButtonTheme.CLEAN}
+        {...props}
+      >
+        {theme === Theme.DARK ? <SunIcon /> : <MoonIcon />}
+      </Button>
+    );
+  }
+);
