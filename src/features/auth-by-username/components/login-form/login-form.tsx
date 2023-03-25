@@ -6,7 +6,7 @@ import { useAppDispatch } from 'shared/lib/hooks/use-app-dispatch';
 import { Button } from 'shared/components/button';
 import { Input } from 'shared/components/input';
 import { Text, TextTheme } from 'shared/components/text';
-import { DynamicModule, ReducersList } from 'shared/lib';
+import { DynamicReducerLoader, ReducersList } from 'shared/lib';
 
 import { loginActions, loginReducer } from '../../model/slice/login-slice';
 import { loginByUsername } from '../../model/services/login-by-username/login-by-username';
@@ -55,7 +55,7 @@ const LoginForm = memo(() => {
   );
 
   return (
-    <DynamicModule reducers={usedReducers}>
+    <DynamicReducerLoader reducers={usedReducers}>
       <form className={styles.form} onSubmit={onSubmit}>
         <Text title={t('auth')} />
         {error && <Text text={t('invalidAuthData')} theme={TextTheme.ERROR} />}
@@ -78,7 +78,7 @@ const LoginForm = memo(() => {
           {t('signIn')}
         </Button>
       </form>
-    </DynamicModule>
+    </DynamicReducerLoader>
   );
 });
 
