@@ -1,8 +1,8 @@
 import { cn } from './classNames/classNames';
 import {
-  DynamicModule,
+  DynamicReducerLoader,
   ReducersList,
-} from './components/dynamic-module/dynamic-module';
+} from './components/dynamic-reducer-loader/dynamic-reducer-loader';
 import { TestAsyncThunk } from './tests/test-async-thunk/test-async-thunk';
 
-export { cn, DynamicModule, ReducersList, TestAsyncThunk };
+export { cn, DynamicReducerLoader, ReducersList, TestAsyncThunk };
