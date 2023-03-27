@@ -44,6 +44,7 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'warn', // Checks effect dependencies
     'object-curly-newline': 'off',
     'no-undef': 'off',
+    'operator-linebreak': 'off',
   },
   globals: {
     __IS_DEV__: true,

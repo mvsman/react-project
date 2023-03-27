@@ -2,18 +2,18 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook';
 import { Theme } from 'shared/contexts';
 
-import { CurrencySelect } from './country-select';
+import { CountrySelect } from './country-select';
 
 export default {
   title: 'entities/country-select',
-  component: CurrencySelect,
+  component: CountrySelect,
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as ComponentMeta<typeof CurrencySelect>;
+} as ComponentMeta<typeof CountrySelect>;
 
-const Template: ComponentStory<typeof CurrencySelect> = (args) => (
-  <CurrencySelect {...args} />
+const Template: ComponentStory<typeof CountrySelect> = (args) => (
+  <CountrySelect {...args} />
 );
 
 export const Light = Template.bind({});

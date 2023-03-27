@@ -1,14 +1,17 @@
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useMemo } from 'react';
 import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 import { DynamicReducerLoader, ReducersList } from 'shared/lib';
 import { useAppDispatch } from 'shared/lib/hooks/use-app-dispatch';
+import { Text } from 'shared/components/text';
 
 import {
   fetchProfileData,
   profileActions,
   ProfileCard,
   profileReducer,
+  ValidateProfileError,
 } from 'entities/profile';
 import {
   getProfileDirty,
@@ -16,6 +19,7 @@ import {
   getProfileForm,
   getProfileLoading,
   getProfileReadonly,
+  getProfileValidateErrors,
 } from 'entities/profile/model/selectors';
 import { Currency } from 'entities/currency';
 import { Country } from 'entities/country';
@@ -27,6 +31,7 @@ const usedReducers: ReducersList = {
 };
 
 const ProfilePage = () => {
+  const { t } = useTranslation('profile');
   const dispatch = useAppDispatch();
 
   const formData = useSelector(getProfileForm);
@@ -34,6 +39,24 @@ const ProfilePage = () => {
   const error = useSelector(getProfileError);
   const readonly = useSelector(getProfileReadonly);
   const dirty = useSelector(getProfileDirty);
+  const validateErrors = useSelector(getProfileValidateErrors);
+
+  const validateErrorsTranslates = useMemo(
+    () => ({
+      [ValidateProfileError.INCORRECT_NAME]: t('validateErrors.incorrectName'),
+      [ValidateProfileError.INCORRECT_LASTNAME]: t(
+        'validateErrors.incorrectLastname'
+      ),
+      [ValidateProfileError.INCORRECT_AGE]: t('validateErrors.incorrectAge'),
+      [ValidateProfileError.INCORRECT_CITY]: t('validateErrors.incorrectCity'),
+      [ValidateProfileError.INCORRECT_USERNAME]: t(
+        'validateErrors.incorrectUsername'
+      ),
+      [ValidateProfileError.NO_DATA]: t('validateErrors.noData'),
+      [ValidateProfileError.SERVER_ERROR]: t('validateErrors.serverError'),
+    }),
+    [t]
+  );
 
   useEffect(() => {
     dispatch(fetchProfileData());
@@ -100,6 +123,14 @@ const ProfilePage = () => {
     <DynamicReducerLoader reducers={usedReducers}>
       <div>
         <ProfilePageHeader readonly={readonly} canSave={dirty} />
+        {validateErrors?.length &&
+          validateErrors.map((err) => (
+            <Text
+              key={err}
+              theme="error"
+              text={validateErrorsTranslates[err]}
+            />
+          ))}
         <ProfileCard
           profile={formData}
           isLoading={isLoading}

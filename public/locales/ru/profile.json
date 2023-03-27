@@ -13,6 +13,15 @@
     "country": "Страна",
     "currency": "Валюта"
   },
+  "validateErrors": {
+    "incorrectName": "Укажите имя",
+    "incorrectLastname": "Укажите фамилию",
+    "incorrectAge": "Укажите возраст",
+    "incorrectUsername": "Укажите имя пользователя",
+    "incorrectCity": "Укажите город",
+    "noData": "Заполните поля",
+    "serverError": "Ошибка сервера"
+  },
   "error": {
     "title": "Ошибка загрузки",
     "text": "Попробуйте обновить страницу"

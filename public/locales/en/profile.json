@@ -13,6 +13,15 @@
     "country": "Country",
     "currency": "Currency"
   },
+  "validateErrors": {
+    "incorrectName": "Enter your name",
+    "incorrectLastname": "Enter your lastname",
+    "incorrectAge": "Enter your age",
+    "incorrectUsername": "Enter your username",
+    "incorrectCity": "Enter your city",
+    "noData": "Fill in the fields",
+    "serverError": "Server error"
+  },
   "error": {
     "title": "Loading error",
     "text": "Try refreshing the page"
