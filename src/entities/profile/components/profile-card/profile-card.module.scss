@@ -3,14 +3,23 @@
   border: 1px solid var(--bg-secondary-invert);
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-}
-
 .body {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  margin-top: 16px;
+}
+
+.avatar {
+  margin: 0 auto;
+}
+
+.loading,
+.error {
+  min-height: 300px;
+  display: grid;
+  place-items: center;
+}
+
+.editing {
+  box-shadow: 0 0 2px 1px var(--bg-primary-invert);
 }

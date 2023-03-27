@@ -1,10 +1,10 @@
-import { FC, memo, useMemo, useState } from 'react';
+import { memo, useMemo, useState } from 'react';
 
 import { ThemeSwitcher } from 'features/theme-switcher';
 import { LangSwitcher } from 'features/lang-switcher';
 
 import { cn } from 'shared/lib';
-import { Button, ButtonSize, ButtonTheme } from 'shared/components/button';
+import { Button } from 'shared/components/button';
 
 import { SidebarItemList } from '../../model/items';
 import { SidebarItem } from '../sidebar-item/sidebar-item';
@@ -32,8 +32,8 @@ export const Sidebar = memo(() => {
       <Button
         data-testid="sidebar-toggle"
         className={styles.collapseButton}
-        theme={ButtonTheme.BACKGROUND}
-        size={ButtonSize.L}
+        theme="background"
+        size="size_l"
         square
         onClick={handleCollapse}
       >

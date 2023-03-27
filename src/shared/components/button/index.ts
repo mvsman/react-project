@@ -1,1 +1,1 @@
-export { Button, ButtonTheme, ButtonSize } from './button';
+export { Button } from './button';

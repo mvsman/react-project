@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook';
 import { Theme } from 'shared/contexts';
 
-import { Button, ButtonSize, ButtonTheme } from './button';
+import { Button } from './button';
 
 export default {
   title: 'shared/button',
@@ -23,64 +23,64 @@ DefaultPrimary.args = {
 export const Outline = Template.bind({});
 Outline.args = {
   children: 'Button',
-  theme: ButtonTheme.OUTLINE,
+  theme: 'outline',
 };
 
 export const OutlineL = Template.bind({});
 OutlineL.args = {
   children: 'Button',
-  size: ButtonSize.L,
-  theme: ButtonTheme.OUTLINE,
+  size: 'size_l',
+  theme: 'outline',
 };
 
 export const OutlineXL = Template.bind({});
 OutlineXL.args = {
   children: 'Button',
-  size: ButtonSize.XL,
-  theme: ButtonTheme.OUTLINE,
+  size: 'size_xl',
+  theme: 'outline',
 };
 
 export const OutlineDark = Template.bind({});
 OutlineDark.args = {
   children: 'Button',
-  theme: ButtonTheme.OUTLINE,
+  theme: 'outline',
 };
 OutlineDark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const background = Template.bind({});
 background.args = {
   children: 'Button',
-  theme: ButtonTheme.BACKGROUND,
+  theme: 'background',
 };
 
 export const backgroundInvert = Template.bind({});
 backgroundInvert.args = {
   children: 'Button',
-  theme: ButtonTheme.BACKGROUND_INVERT,
+  theme: 'backgroundInvert',
 };
 
 export const SquareM = Template.bind({});
 SquareM.args = {
   children: '>',
   square: true,
-  size: ButtonSize.M,
-  theme: ButtonTheme.BACKGROUND_INVERT,
+  size: 'size_m',
+  theme: 'backgroundInvert',
 };
 
 export const SquareL = Template.bind({});
 SquareL.args = {
   children: '>',
   square: true,
-  size: ButtonSize.L,
-  theme: ButtonTheme.BACKGROUND_INVERT,
+  size: 'size_l',
+  theme: 'backgroundInvert',
 };
 
 export const SquareXL = Template.bind({});
 SquareXL.args = {
   children: '>',
   square: true,
-  size: ButtonSize.XL,
-  theme: ButtonTheme.BACKGROUND_INVERT,
+  size: 'size_xl',
+  theme: 'backgroundInvert',
 };
 
 export const Disabled = Template.bind({});

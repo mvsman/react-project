@@ -9,7 +9,8 @@ interface InputProps
   className?: string;
   label?: string;
   placeholder?: string;
-  value?: string;
+  value?: string | number;
+  readonly?: boolean;
   onChange?: (value: string) => void;
 }
 
@@ -21,6 +22,7 @@ export const Input = memo(
     value,
     placeholder,
     name,
+    readonly,
     onChange,
     ...rest
   }: InputProps) => {
@@ -32,11 +34,14 @@ export const Input = memo(
       <div className={styles.wrapper}>
         {label && <label htmlFor={name}>{label}</label>}
         <input
-          className={cn(styles.input, {}, [className])}
+          className={cn(styles.input, { [styles.readonly]: readonly }, [
+            className,
+          ])}
           type={type}
           name={name}
           value={value}
           placeholder={placeholder}
+          readOnly={readonly}
           onChange={handleChange}
           {...rest}
         />

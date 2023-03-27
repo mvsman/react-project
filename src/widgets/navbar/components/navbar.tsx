@@ -6,7 +6,7 @@ import { LoginModal } from 'features/auth-by-username';
 import { getUserAuthData, userActions } from 'entities/user';
 
 import { useAppDispatch } from 'shared/lib/hooks/use-app-dispatch';
-import { Button, ButtonTheme } from 'shared/components/button';
+import { Button } from 'shared/components/button';
 
 import styles from './navbar.module.scss';
 
@@ -35,7 +35,7 @@ export const Navbar = memo(() => {
     <div className={styles.navbar}>
       {!authData ? (
         <>
-          <Button theme={ButtonTheme.CLEAN} onClick={handleShowModal}>
+          <Button theme="clean" onClick={handleShowModal}>
             {t('signIn')}
           </Button>
           {showModal && (
@@ -43,7 +43,7 @@ export const Navbar = memo(() => {
           )}
         </>
       ) : (
-        <Button theme={ButtonTheme.CLEAN} onClick={handleLogout}>
+        <Button theme="clean" onClick={handleLogout}>
           {t('logout')}
         </Button>
       )}

@@ -4,34 +4,21 @@ import { cn } from 'shared/lib';
 
 import styles from './button.module.scss';
 
-export enum ButtonTheme {
-  CLEAN = 'clean',
-  OUTLINE = 'outline',
-  BACKGROUND = 'background',
-  BACKGROUND_INVERT = 'backgroundInvert',
-}
-
-export enum ButtonSize {
-  M = 'size_m',
-  L = 'size_l',
-  XL = 'size_xl',
-}
-
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
-  theme?: ButtonTheme;
+  theme?: 'clean' | 'outline' | 'background' | 'backgroundInvert';
   type?: 'button' | 'submit';
   square?: boolean;
-  size?: ButtonSize;
+  size?: 'size_m' | 'size_l' | 'size_xl';
 }
 
 export const Button = memo(
   ({
     children,
     className,
-    theme = ButtonTheme.OUTLINE,
+    theme = 'outline',
     square = false,
-    size = ButtonSize.M,
+    size = 'size_m',
     type = 'button',
     ...props
   }: ButtonProps) => (

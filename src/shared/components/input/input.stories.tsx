@@ -34,3 +34,8 @@ DarkWithProps.args = {
   placeholder: 'placeholder',
 };
 DarkWithProps.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const Readonly = Template.bind({});
+Readonly.args = {
+  readonly: true,
+};

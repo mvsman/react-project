@@ -12,3 +12,8 @@
   background-color: var(--bg-primary);
   color: var(--text-primary);
 }
+
+.readonly {
+  opacity: 0.7;
+  cursor: auto;
+}

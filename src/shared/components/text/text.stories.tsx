@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook';
 import { Theme } from 'shared/contexts';
 
-import { Text, TextTheme } from './text';
+import { Text } from './text';
 
 export default {
   title: 'shared/text',
@@ -31,11 +31,18 @@ TextTitle.args = {
   text: 'Text',
 };
 
+export const TextTitleAlign = Template.bind({});
+TextTitle.args = {
+  title: 'Title',
+  text: 'Text',
+  align: 'center',
+};
+
 export const TextTitleError = Template.bind({});
 TextTitleError.args = {
   title: 'Title',
   text: 'Text',
-  theme: TextTheme.ERROR,
+  theme: 'error',
 };
 
 export const TextTitleDark = Template.bind({});

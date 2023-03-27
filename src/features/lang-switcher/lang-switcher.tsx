@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Button, ButtonTheme } from 'shared/components/button';
+import { Button } from 'shared/components/button';
 import { cn } from 'shared/lib';
 
 interface LangSwitcherProps {
@@ -18,7 +18,7 @@ export const LangSwitcher = memo(({ className }: LangSwitcherProps) => {
   return (
     <Button
       className={cn('', {}, [className])}
-      theme={ButtonTheme.CLEAN}
+      theme="clean"
       onClick={handleChangeLang}
     >
       {t('lang')}

@@ -1,6 +1,20 @@
 {
   "profile": "Profile",
   "edit": "Edit",
-  "name": "Name",
-  "lastname": "Lastname"
+  "cancel": "Cancel",
+  "save": "Save",
+  "form": {
+    "name": "Name",
+    "lastname": "Lastname",
+    "age": "Age",
+    "city": "City",
+    "username": "Username",
+    "avatar": "Avatar (url)",
+    "country": "Country",
+    "currency": "Currency"
+  },
+  "error": {
+    "title": "Loading error",
+    "text": "Try refreshing the page"
+  }
 }
