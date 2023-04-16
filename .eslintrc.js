@@ -59,7 +59,7 @@ module.exports = {
       },
     },
     {
-      files: ['src/**/model/slice/*.ts'],
+      files: ['src/**/model/{slice,slices}/*.ts'],
       rules: {
         'no-param-reassign': ['error', { props: false }],
       },

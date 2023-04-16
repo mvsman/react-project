@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
@@ -30,6 +30,19 @@ const usedReducers: ReducersList = {
   articleDetails: articleDetailsReducer,
 };
 
+const renderBlock = (block: ArticleBlock) => {
+  switch (block.type) {
+    case 'TEXT':
+      return <ArticleTextBlock key={block.id} block={block} />;
+    case 'CODE':
+      return <ArticleCodeBlock key={block.id} block={block} />;
+    case 'IMAGE':
+      return <ArticleImageBlock key={block.id} block={block} />;
+    default:
+      return null;
+  }
+};
+
 export const ArticleDetails = ({ id }: ArticleDetailsProps) => {
   const { t } = useTranslation('article-details');
 
@@ -38,19 +51,6 @@ export const ArticleDetails = ({ id }: ArticleDetailsProps) => {
   const article = useSelector(getArticleDetailsData);
   const isLoading = useSelector(getArticleDetailsIsLoading);
   const error = useSelector(getArticleDetailsError);
-
-  const renderBlock = useCallback((block: ArticleBlock) => {
-    switch (block.type) {
-      case 'TEXT':
-        return <ArticleTextBlock key={block.id} block={block} />;
-      case 'CODE':
-        return <ArticleCodeBlock key={block.id} block={block} />;
-      case 'IMAGE':
-        return <ArticleImageBlock key={block.id} block={block} />;
-      default:
-        return null;
-    }
-  }, []);
 
   useEffect(() => {
     dispatch(fetchArticleById(id));
