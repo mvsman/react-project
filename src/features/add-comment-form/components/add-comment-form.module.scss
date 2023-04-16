@@ -1,0 +1,12 @@
+.form {
+  padding: 16px;
+  border: 1px solid var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  & > div {
+    flex-grow: 1;
+    width: 100%;
+  }
+}

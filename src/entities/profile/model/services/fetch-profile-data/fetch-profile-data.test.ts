@@ -7,6 +7,7 @@ import { fetchProfileData } from './fetch-profile-data';
 describe('fetchProfileData.test', () => {
   test('success', async () => {
     const data = {
+      id: '1',
       name: 'Alex',
       lastname: 'Ivanov',
       age: 19,
@@ -21,7 +22,7 @@ describe('fetchProfileData.test', () => {
     const thunk = new TestAsyncThunk(fetchProfileData);
     thunk.api.get.mockReturnValue(Promise.resolve({ data }));
 
-    const result = await thunk.callThunk();
+    const result = await thunk.callThunk(data.id);
 
     expect(thunk.api.get).toHaveBeenCalled();
 
@@ -33,7 +34,7 @@ describe('fetchProfileData.test', () => {
     const thunk = new TestAsyncThunk(fetchProfileData);
     thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }));
 
-    const result = await thunk.callThunk();
+    const result = await thunk.callThunk('1');
 
     expect(result.meta.requestStatus).toBe('rejected');
   });

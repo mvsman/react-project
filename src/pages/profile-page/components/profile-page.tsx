@@ -1,6 +1,7 @@
 import { memo, useCallback, useEffect, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import { useParams } from 'react-router-dom';
 
 import { DynamicReducerLoader, ReducersList } from 'shared/lib';
 import { useAppDispatch } from 'shared/lib/hooks/use-app-dispatch';
@@ -32,6 +33,7 @@ const usedReducers: ReducersList = {
 
 const ProfilePage = () => {
   const { t } = useTranslation('profile');
+  const { id } = useParams<{ id: string }>();
   const dispatch = useAppDispatch();
 
   const formData = useSelector(getProfileForm);
@@ -60,9 +62,11 @@ const ProfilePage = () => {
 
   useEffect(() => {
     if (__PROJECT__ !== 'storybook') {
-      dispatch(fetchProfileData());
+      if (id) {
+        dispatch(fetchProfileData(id));
+      }
     }
-  }, [dispatch]);
+  }, [dispatch, id]);
 
   // todo: universal form handler
   const handleChangeName = useCallback(

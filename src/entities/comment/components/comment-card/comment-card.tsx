@@ -1,7 +1,10 @@
+import { RoutesPath } from 'app/providers/router/config/router-config';
+import { AppLink } from 'shared/components/app-link';
 import { Avatar } from 'shared/components/avatar';
 import { Skeleton } from 'shared/components/skeleton';
 import { Text } from 'shared/components/text';
 import { Comment } from '../../model/types/comment';
+
 import styles from './comment-card.module.scss';
 
 interface CommentCardProps {
@@ -22,12 +25,19 @@ export const CommentCard = ({ comment, isLoading }: CommentCardProps) => {
     );
   }
 
+  if (!comment) {
+    return null;
+  }
+
   return (
     <div className={styles.card}>
-      <div className={styles.user}>
+      <AppLink
+        to={`${RoutesPath.profile}${comment?.user.id}`}
+        className={styles.user}
+      >
         <Avatar src={comment?.user.avatar ?? ''} size={30} isCircle />
         <Text title={comment?.user.username} />
-      </div>
+      </AppLink>
       <Text text={comment?.text} />
     </div>
   );

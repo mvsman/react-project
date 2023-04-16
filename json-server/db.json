@@ -1,5 +1,11 @@
 {
-  "posts": [{ "id": "1", "title": "json-server", "author": "typicode" }],
+  "posts": [
+    {
+      "id": "1",
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
   "comments": [
     {
       "id": "1",
@@ -18,18 +24,50 @@
       "text": "Просто комментарий 3",
       "articleId": "3",
       "userId": "3"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "test 1",
+      "id": "5tAKFqp"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "test 1",
+      "id": "xuQOQQ5"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "hi",
+      "id": "OJ6JAPx"
     }
   ],
-  "profile": {
-    "name": "Vladimir",
-    "lastname": "Mikolin",
-    "age": 26,
-    "currency": "RUB",
-    "country": "Russia",
-    "city": "Yekaterinburg",
-    "username": "mvsman",
-    "avatar": "https://cdn.dribbble.com/users/1162077/screenshots/7495197/2-cat-programmer_4x.png"
-  },
+  "profile": [
+    {
+      "id": "1",
+      "name": "Vladimir",
+      "lastname": "Lastname",
+      "age": 26,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Yekaterinburg",
+      "username": "mvsman",
+      "avatar": "https://yt3.googleusercontent.com/-CFTJHU7fEWb7BYEb6Jh9gm1EpetvVGQqtof0Rbh-VQRIznYYKJxCaqv_9HeBcmJmIsp2vOO9JU=s900-c-k-c0x00ffffff-no-rj"
+    },
+    {
+      "id": "2",
+      "name": "1Viktor",
+      "lastname": "Lastname",
+      "age": 22,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Sochi",
+      "username": "vitek",
+      "avatar": "https://pluggedin.ru/images/upload/1678786821.jpg"
+    }
+  ],
   "users": [
     {
       "id": "1",
@@ -54,7 +92,9 @@
       "img": "https://habrastorage.org/r/w1560/webt/in/r4/qu/inr4quketif7lohmnby_zln2lt0.png",
       "views": 699,
       "createdAt": "27.03.2023",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",

@@ -12,5 +12,8 @@
   "password": "Password",
   "auth": "Authorization",
   "logout": "Logout",
-  "invalidAuthData": "Invalid username or password"
+  "invalidAuthData": "Invalid username or password",
+  "comments": "Comments",
+  "addTextComment": "Add text comment",
+  "send": "Send"
 }
