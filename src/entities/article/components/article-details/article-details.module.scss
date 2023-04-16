@@ -1,0 +1,9 @@
+.articleDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  & > :first-child {
+    margin: 0 auto;
+  }
+}

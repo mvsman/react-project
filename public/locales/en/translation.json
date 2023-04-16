@@ -3,6 +3,7 @@
   "main": "Main",
   "about": "About",
   "profile": "Profile",
+  "articles": "Articles",
   "notFound": "Page not found",
   "pageError": "Something went wrong :(",
   "pageErrorButton": "Reload the page",

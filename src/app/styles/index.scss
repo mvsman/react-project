@@ -20,4 +20,7 @@ body {
 .page {
   flex-grow: 1;
   padding: 24px;
+  height: calc(100vh - var(--navbar-height));
+  overflow-x: hidden;
+  overflow-y: auto;
 }

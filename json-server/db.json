@@ -1,6 +1,25 @@
 {
   "posts": [{ "id": "1", "title": "json-server", "author": "typicode" }],
-  "comments": [{ "id": "1", "body": "some comment", "postId": "1" }],
+  "comments": [
+    {
+      "id": "1",
+      "text": "Просто комментарий",
+      "articleId": "1",
+      "userId": "1"
+    },
+    {
+      "id": "2",
+      "text": "Просто комментарий 2",
+      "articleId": "2",
+      "userId": "2"
+    },
+    {
+      "id": "3",
+      "text": "Просто комментарий 3",
+      "articleId": "3",
+      "userId": "3"
+    }
+  ],
   "profile": {
     "name": "Vladimir",
     "lastname": "Mikolin",
@@ -15,7 +34,59 @@
     {
       "id": "1",
       "username": "admin",
-      "password": "123"
+      "password": "123",
+      "role": "ADMIN"
+    },
+    {
+      "id": "2",
+      "username": "user",
+      "password": "123",
+      "role": "USER"
+    }
+  ],
+  "articles": [
+    {
+      "id": "1",
+      "title": "JavaScript. Работа с буфером, Ctrl+C Ctrl+V",
+      "subtitle": "Как копировать в буфер картинки. Какие типы данных можно класть в буфер. Поддержка кастомных типов. Как сделать свои кнопки копировать/вставить.",
+      "img": "https://habrastorage.org/r/w1560/webt/in/r4/qu/inr4quketif7lohmnby_zln2lt0.png",
+      "views": 699,
+      "createdAt": "27.03.2023",
+      "type": ["IT"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Заголовок блока",
+          "paragraphs": [
+            "document.execCommand('copy') не работает. Это API устарело и не работает. Не пытайтесь с его помощью обойти ограничения других API."
+          ]
+        },
+        {
+          "id": "4",
+          "type": "CODE",
+          "code": "document.addEventListener('copy', evt => {\nevt.preventDefault();\nevt.clipboardData.setData('text/plain', 'text to clipboard');\n});"
+        },
+        {
+          "id": "5",
+          "type": "TEXT",
+          "title": "Заголовок блока",
+          "paragraphs": [
+            "В этом варианте нет возможности сделать свою кнопку “копировать”, пользователь должен нажать Ctrl+C."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "IMAGE",
+          "src": "https://habrastorage.org/webt/9c/sb/js/9csbjsbj7g6vnktjmojz2ttifu0.png",
+          "title": "Просто картинка :)"
+        },
+        {
+          "id": "3",
+          "type": "CODE",
+          "code": "btn.addEventListener('click', async _ => \nawait navigator.clipboard.writeText('text to clipboard')\n);"
+        }
+      ]
     }
   ]
 }
