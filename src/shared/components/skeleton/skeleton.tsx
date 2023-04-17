@@ -10,7 +10,12 @@ interface SekeletonProps {
 }
 
 export const Skeleton = memo(
-  ({ className, height = 100, width = 100, borderRadius }: SekeletonProps) => {
+  ({
+    className,
+    height = 100,
+    width = '100%',
+    borderRadius,
+  }: SekeletonProps) => {
     const propStyles = useMemo<CSSProperties>(
       () => ({
         width,

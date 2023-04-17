@@ -7,13 +7,16 @@ import styles from './article-text-block.module.scss';
 
 interface ArticleTextBlockProps {
   block: ArticleText;
+  className?: string;
 }
 
-export const ArticleTextBlock = memo(({ block }: ArticleTextBlockProps) => (
-  <div>
-    {block.title && <Text className={styles.title} title={block.title} />}
-    {block.paragraphs.map((paragraph, index) => (
-      <Text className={styles.paragraph} key={index} text={paragraph} />
-    ))}
-  </div>
-));
+export const ArticleTextBlock = memo(
+  ({ block, className }: ArticleTextBlockProps) => (
+    <div className={className}>
+      {block.title && <Text className={styles.title} title={block.title} />}
+      {block.paragraphs.map((paragraph, index) => (
+        <Text className={styles.paragraph} key={index} text={paragraph} />
+      ))}
+    </div>
+  )
+);

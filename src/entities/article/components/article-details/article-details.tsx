@@ -7,6 +7,8 @@ import { useAppDispatch } from 'shared/lib/hooks/use-app-dispatch';
 import { Skeleton } from 'shared/components/skeleton';
 import { Text } from 'shared/components/text';
 import { Avatar } from 'shared/components/avatar';
+import EyeIcon from 'shared/assets/icons/eye.svg';
+import CalendarIcon from 'shared/assets/icons/calendar.svg';
 
 import { articleDetailsReducer } from '../../model/slice/article-details-slice';
 import { fetchArticleById } from '../../model/services/fetch-article-by-id/fetch-article-by-id';
@@ -75,10 +77,16 @@ export const ArticleDetails = ({ id }: ArticleDetailsProps) => {
       <>
         <Avatar size={200} src={article?.img} />
         <Text title={article?.title} text={article?.subtitle} />
-        <div>
-          <Text text={String(article?.views)} />
-          <Text text={article?.createdAt} />
-        </div>
+        <>
+          <div className={styles.info}>
+            <EyeIcon />
+            <Text text={String(article?.views)} />
+          </div>
+          <div className={styles.info}>
+            <CalendarIcon />
+            <Text text={article?.createdAt} />
+          </div>
+        </>
         {article?.blocks.map(renderBlock)}
       </>
     );

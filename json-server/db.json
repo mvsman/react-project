@@ -87,14 +87,13 @@
   "articles": [
     {
       "id": "1",
+      "userId": "1",
       "title": "JavaScript. Работа с буфером, Ctrl+C Ctrl+V",
       "subtitle": "Как копировать в буфер картинки. Какие типы данных можно класть в буфер. Поддержка кастомных типов. Как сделать свои кнопки копировать/вставить.",
       "img": "https://habrastorage.org/r/w1560/webt/in/r4/qu/inr4quketif7lohmnby_zln2lt0.png",
       "views": 699,
       "createdAt": "27.03.2023",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
