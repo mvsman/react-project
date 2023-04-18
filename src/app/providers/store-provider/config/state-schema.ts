@@ -15,6 +15,7 @@ import { LoginSchema } from 'features/auth-by-username';
 import { ArticleDetailsSchema } from 'entities/article';
 import { ArticleDetailsCommentsSchema } from 'pages/article-details-page';
 import { AddCommentFormShema } from 'features/add-comment-form';
+import { ArticlesPageSchema } from 'pages/articles-page';
 
 export interface StateSchema {
   counter: CounterSchema;
@@ -23,6 +24,7 @@ export interface StateSchema {
   // async reducers
   loginForm?: LoginSchema;
   profile?: ProfileSchema;
+  articlesPage?: ArticlesPageSchema;
   articleDetails?: ArticleDetailsSchema;
   articleDetailsComments?: ArticleDetailsCommentsSchema;
   addCommentForm?: AddCommentFormShema;
