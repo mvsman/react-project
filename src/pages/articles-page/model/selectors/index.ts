@@ -8,3 +8,12 @@ export const getArticlesError = (state: StateSchema) =>
 
 export const getArticlesView = (state: StateSchema) =>
   state.articlesPage?.view || 'grid';
+
+export const getArticlesPage = (state: StateSchema) =>
+  state.articlesPage?.page || 1;
+
+export const getArticlesLimit = (state: StateSchema) =>
+  state.articlesPage?.limit;
+
+export const getArticlesHasMore = (state: StateSchema) =>
+  state.articlesPage?.hasMore;

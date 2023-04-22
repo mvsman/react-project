@@ -8,6 +8,7 @@ import { useAppDispatch } from 'shared/lib/hooks/use-app-dispatch';
 import { AddCommentForm } from 'features/add-comment-form';
 import { ArticleDetails } from 'entities/article';
 import { CommentList } from 'entities/comment';
+import { Page } from 'shared/components/page';
 import { Text } from 'shared/components/text';
 import { DynamicReducerLoader, ReducersList } from 'shared/lib';
 import {
@@ -43,17 +44,17 @@ const ArticleDetailsPage = () => {
   }, [dispatch, id]);
 
   if (!id) {
-    return <div>{t('notFound', { ns: 'article-details' })}</div>;
+    return <Page>{t('notFound', { ns: 'article-details' })}</Page>;
   }
 
   return (
     <DynamicReducerLoader reducers={reducers}>
-      <div>
+      <Page>
         <ArticleDetails id={id} />
         <Text className={styles.commentTitle} title={t('comments')} />
         <AddCommentForm onSendComment={onSendComment} />
         <CommentList isLoading={commentsIsLoading} comments={comments} />
-      </div>
+      </Page>
     </DynamicReducerLoader>
   );
 };

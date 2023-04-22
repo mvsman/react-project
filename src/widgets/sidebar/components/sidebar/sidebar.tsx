@@ -27,7 +27,7 @@ export const Sidebar = memo(() => {
   );
 
   return (
-    <div
+    <aside
       data-testid="sidebar"
       className={cn(styles.sidebar, { [styles.sidebarCollapsed]: collapse })}
     >
@@ -41,11 +41,11 @@ export const Sidebar = memo(() => {
       >
         {collapse ? '>' : '<'}
       </Button>
-      <div className={styles.nav}>{links}</div>
+      <nav className={styles.nav}>{links}</nav>
       <div className={styles.switchers}>
         <ThemeSwitcher />
         <LangSwitcher />
       </div>
-    </div>
+    </aside>
   );
 });

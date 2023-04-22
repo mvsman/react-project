@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
+import { Page } from 'shared/components/page';
 import { Button } from 'shared/components/button';
 
 import styles from './page-error.module.scss';
@@ -12,9 +13,9 @@ export const PageError = () => {
   };
 
   return (
-    <div className={styles.page_error}>
+    <Page className={styles.page_error}>
       <h1>{t('pageError')}</h1>
       <Button onClick={handleReload}>{t('pageErrorButton')}</Button>
-    </div>
+    </Page>
   );
 };

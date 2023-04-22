@@ -32,7 +32,7 @@ export const Navbar = memo(() => {
   }, [dispatch]);
 
   return (
-    <div className={styles.navbar}>
+    <header className={styles.navbar}>
       {!authData ? (
         <>
           <Button theme="clean" onClick={handleShowModal}>
@@ -47,6 +47,6 @@ export const Navbar = memo(() => {
           {t('logout')}
         </Button>
       )}
-    </div>
+    </header>
   );
 });

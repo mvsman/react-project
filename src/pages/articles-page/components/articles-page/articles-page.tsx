@@ -4,8 +4,11 @@ import { useSelector } from 'react-redux';
 import { ArticleViewSelector } from 'features/article-view-selector';
 import { DynamicReducerLoader, ReducersList } from 'shared/lib';
 import { useAppDispatch } from 'shared/lib/hooks/use-app-dispatch';
+import { Page } from 'shared/components/page';
 import { ArticleList, ArticleView } from 'entities/article';
+
 import { fetchArticles } from '../../model/services/fetch-articles';
+import { fetchArticlesNextPage } from '../../model/services/fetch-articles-next-page';
 import {
   articlesPageActions,
   articlesPageReducer,
@@ -27,8 +30,12 @@ const ArticlesPage = () => {
   const isLoading = useSelector(getArticlesIsLoading);
 
   useEffect(() => {
-    dispatch(fetchArticles());
     dispatch(articlesPageActions.initView());
+    dispatch(fetchArticles({ page: 1 }));
+  }, [dispatch]);
+
+  const onLoadHasMore = useCallback(() => {
+    dispatch(fetchArticlesNextPage());
   }, [dispatch]);
 
   const onChangeView = useCallback(
@@ -40,10 +47,10 @@ const ArticlesPage = () => {
 
   return (
     <DynamicReducerLoader reducers={reducers}>
-      <div>
+      <Page onScrollEnd={onLoadHasMore}>
         <ArticleViewSelector view={view} onViewClick={onChangeView} />
         <ArticleList isLoading={isLoading} view={view} articles={articles} />
-      </div>
+      </Page>
     </DynamicReducerLoader>
   );
 };

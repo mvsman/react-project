@@ -23,10 +23,6 @@ export const ArticleList = ({
   view = 'list',
   isLoading,
 }: ArticleListProps) => {
-  if (isLoading) {
-    return skeletons(view);
-  }
-
   if (!articles?.length) {
     return null;
   }
@@ -35,5 +31,10 @@ export const ArticleList = ({
     <ArticleListItem key={article.id} article={article} view={view} />
   );
 
-  return <div className={styles[view]}>{articles.map(renderItem)}</div>;
+  return (
+    <div className={styles[view]}>
+      {articles.map(renderItem)}
+      {isLoading && skeletons(view)}
+    </div>
+  );
 };

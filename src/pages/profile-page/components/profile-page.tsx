@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 
 import { DynamicReducerLoader, ReducersList } from 'shared/lib';
 import { useAppDispatch } from 'shared/lib/hooks/use-app-dispatch';
+import { Page } from 'shared/components/page';
 import { Text } from 'shared/components/text';
 
 import {
@@ -127,7 +128,7 @@ const ProfilePage = () => {
 
   return (
     <DynamicReducerLoader reducers={usedReducers}>
-      <div>
+      <Page>
         <ProfilePageHeader readonly={readonly} canSave={dirty} />
         {validateErrors?.length &&
           validateErrors.map((err) => (
@@ -151,7 +152,7 @@ const ProfilePage = () => {
           onChangeCurrency={handleChangeCurrency}
           onChangeCountry={handleChangeCountry}
         />
-      </div>
+      </Page>
     </DynamicReducerLoader>
   );
 };
