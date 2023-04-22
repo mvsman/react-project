@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 
 import { DynamicReducerLoader, ReducersList } from 'shared/lib';
 import { useAppDispatch } from 'shared/lib/hooks/use-app-dispatch';
-import { Page } from 'shared/components/page';
+import { Page } from 'widgets/page';
 import { Text } from 'shared/components/text';
 
 import {

@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Page } from 'shared/components/page';
+import { Page } from 'widgets/page';
 
 const MainPage = () => {
   const { t } = useTranslation('main');

@@ -5,7 +5,6 @@ import {
   Reducer,
   ReducersMapObject,
 } from '@reduxjs/toolkit';
-import { NavigateOptions, To } from 'react-router-dom';
 import { AxiosInstance } from 'axios';
 
 import { CounterSchema } from 'entities/counter';
@@ -16,10 +15,12 @@ import { ArticleDetailsSchema } from 'entities/article';
 import { ArticleDetailsCommentsSchema } from 'pages/article-details-page';
 import { AddCommentFormShema } from 'features/add-comment-form';
 import { ArticlesPageSchema } from 'pages/articles-page';
+import { PageSchema } from 'widgets/page';
 
 export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;
+  page: PageSchema;
 
   // async reducers
   loginForm?: LoginSchema;
@@ -45,7 +46,6 @@ export interface StoreManager extends EnhancedStore<StateSchema> {
 
 export interface ThunkExtraArg {
   api: AxiosInstance;
-  navigate?: (to: To, options?: NavigateOptions) => void;
 }
 
 export interface ThunkConfig<T> {

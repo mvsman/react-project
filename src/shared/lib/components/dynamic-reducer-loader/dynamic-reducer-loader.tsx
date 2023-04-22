@@ -28,9 +28,15 @@ export const DynamicReducerLoader: FC<DynamicReducerLoaderProps> = ({
 
   useEffect(() => {
     // async load reducer
+    const initReducers = store.reducerManager.getReducerMap();
+
     Object.entries(reducers).forEach(([name, reducer]) => {
-      store.reducerManager.add(name as StateSchemaKey, reducer);
-      dispatch({ type: `@INIT ${name} reducer` });
+      const inited = initReducers[name as StateSchemaKey];
+
+      if (!inited) {
+        store.reducerManager.add(name as StateSchemaKey, reducer);
+        dispatch({ type: `@INIT ${name} reducer` });
+      }
     });
 
     return () => {

@@ -8,7 +8,7 @@ import { useAppDispatch } from 'shared/lib/hooks/use-app-dispatch';
 import { AddCommentForm } from 'features/add-comment-form';
 import { ArticleDetails } from 'entities/article';
 import { CommentList } from 'entities/comment';
-import { Page } from 'shared/components/page';
+import { Page } from 'widgets/page';
 import { Text } from 'shared/components/text';
 import { DynamicReducerLoader, ReducersList } from 'shared/lib';
 import {

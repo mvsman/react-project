@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
-import { Page } from 'shared/components/page';
+import { Page } from 'widgets/page';
 import { Button } from 'shared/components/button';
 
 import styles from './page-error.module.scss';
