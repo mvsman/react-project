@@ -1,0 +1,12 @@
+.tabs {
+  display: flex;
+  gap: 8px;
+
+  .tab {
+    cursor: pointer;
+  }
+
+  .active {
+    border: 1px solid var(--bg-primary-invert);
+  }
+}

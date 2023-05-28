@@ -1,3 +1,4 @@
+import { Text } from 'shared/components/text';
 import { Article, ArticleView } from '../../model/types/article';
 import { ArticleListItem } from '../article-list-item/article-list-item';
 import { ArticleListItemSkeleton } from '../article-list-item/article-list-item.skeleton';
@@ -23,8 +24,12 @@ export const ArticleList = ({
   view = 'list',
   isLoading,
 }: ArticleListProps) => {
-  if (!articles?.length) {
-    return null;
+  if (!isLoading && !articles?.length) {
+    return (
+      <div className={styles[view]}>
+        <Text title="Статьи не найдены" />
+      </div>
+    );
   }
 
   const renderItem = (article: Article) => (
@@ -33,7 +38,7 @@ export const ArticleList = ({
 
   return (
     <div className={styles[view]}>
-      {articles.map(renderItem)}
+      {articles?.map(renderItem)}
       {isLoading && skeletons(view)}
     </div>
   );

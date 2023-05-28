@@ -29,3 +29,6 @@ export const getArticlesSort = (state: StateSchema) =>
 
 export const getArticlesSearch = (state: StateSchema) =>
   state.articlesPage?.search ?? '';
+
+export const getArticlesType = (state: StateSchema) =>
+  state.articlesPage?.type ?? 'ALL';

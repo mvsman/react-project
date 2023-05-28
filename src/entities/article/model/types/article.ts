@@ -1,6 +1,6 @@
 import { User } from 'entities/user';
 
-export type ArticleType = 'IT' | 'SCIENCE' | 'ECONOMICS';
+export type ArticleType = 'ALL' | 'IT' | 'SCIENCE' | 'ECONOMICS';
 
 export type ArticleBlockType = 'TEXT' | 'CODE' | 'IMAGE';
 

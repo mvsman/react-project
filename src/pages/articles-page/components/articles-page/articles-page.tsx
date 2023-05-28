@@ -1,5 +1,6 @@
 import { memo, useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { useSearchParams } from 'react-router-dom';
 
 import { DynamicReducerLoader, ReducersList } from 'shared/lib';
 import { useAppDispatch } from 'shared/lib/hooks/use-app-dispatch';
@@ -27,10 +28,11 @@ const ArticlesPage = () => {
   const articles = useSelector(getArticles.selectAll);
   const isLoading = useSelector(getArticlesIsLoading);
   const view = useSelector(getArticlesView);
+  const [searchParams] = useSearchParams();
 
   useEffect(() => {
-    dispatch(initArticles());
-  }, [dispatch]);
+    dispatch(initArticles(searchParams));
+  }, [dispatch, searchParams]);
 
   const onLoadHasMore = useCallback(() => {
     dispatch(fetchArticlesNextPage());
