@@ -1,3 +1,4 @@
+/* eslint-disable function-paren-newline */
 import { MutableRefObject, ReactNode, UIEvent, useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
@@ -54,7 +55,7 @@ export const Page = ({ children, className, onScrollEnd }: PageProps) => {
       onScroll={onScroll}
     >
       {children}
-      <div ref={triggerRef} />
+      {onScrollEnd ? <div className={styles.trigger} ref={triggerRef} /> : null}
     </section>
   );
 };

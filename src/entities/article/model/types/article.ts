@@ -6,6 +6,8 @@ export type ArticleBlockType = 'TEXT' | 'CODE' | 'IMAGE';
 
 export type ArticleView = 'grid' | 'list';
 
+export type ArticleSortField = 'views' | 'title' | 'createdAt';
+
 export interface ArticleBlockBase {
   id: string;
   type: ArticleBlockType;

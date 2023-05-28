@@ -1,20 +1,19 @@
 import { memo, useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
-import { ArticleViewSelector } from 'features/article-view-selector';
 import { DynamicReducerLoader, ReducersList } from 'shared/lib';
 import { useAppDispatch } from 'shared/lib/hooks/use-app-dispatch';
 import { Page } from 'widgets/page';
-import { ArticleList, ArticleView } from 'entities/article';
+import { ArticleList } from 'entities/article';
 
 import { initArticles } from '../../model/services/init-articles';
 import { fetchArticlesNextPage } from '../../model/services/fetch-articles-next-page';
 import {
-  articlesPageActions,
   articlesPageReducer,
   getArticles,
 } from '../../model/slices/articles-page-slice';
 import { getArticlesIsLoading, getArticlesView } from '../../model/selectors';
+import { ArticlesPageFilters } from '../articles-page-filters/articles-page-filters';
 
 import styles from './articles-page.module.scss';
 
@@ -26,8 +25,8 @@ const ArticlesPage = () => {
   const dispatch = useAppDispatch();
 
   const articles = useSelector(getArticles.selectAll);
-  const view = useSelector(getArticlesView);
   const isLoading = useSelector(getArticlesIsLoading);
+  const view = useSelector(getArticlesView);
 
   useEffect(() => {
     dispatch(initArticles());
@@ -37,17 +36,10 @@ const ArticlesPage = () => {
     dispatch(fetchArticlesNextPage());
   }, [dispatch]);
 
-  const onChangeView = useCallback(
-    (view: ArticleView) => {
-      dispatch(articlesPageActions.setView(view));
-    },
-    [dispatch]
-  );
-
   return (
     <DynamicReducerLoader reducers={reducers} removeAfterUnmount={false}>
       <Page onScrollEnd={onLoadHasMore}>
-        <ArticleViewSelector view={view} onViewClick={onChangeView} />
+        <ArticlesPageFilters />
         <ArticleList isLoading={isLoading} view={view} articles={articles} />
       </Page>
     </DynamicReducerLoader>

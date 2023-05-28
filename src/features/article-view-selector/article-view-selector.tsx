@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 import { ArticleView } from 'entities/article';
 import { Button } from 'shared/components/button';
 import GridIcon from 'shared/assets/icons/grid.svg';
@@ -26,28 +28,27 @@ const viewTypes: ViewTypes[] = [
   },
 ];
 
-export const ArticleViewSelector = ({
-  view,
-  onViewClick,
-}: ArticleViewSelectorProps) => {
-  const onClick = (view: ArticleView) => () => {
-    if (onViewClick) {
-      onViewClick(view);
-    }
-  };
+export const ArticleViewSelector = memo(
+  ({ view, onViewClick }: ArticleViewSelectorProps) => {
+    const onClick = (view: ArticleView) => () => {
+      if (onViewClick) {
+        onViewClick(view);
+      }
+    };
 
-  return (
-    <div>
-      {viewTypes.map(({ view: v, Icon }) => (
-        <Button
-          className={view === v && styles.active}
-          key={v}
-          theme="clean"
-          onClick={onClick(v)}
-        >
-          <Icon />
-        </Button>
-      ))}
-    </div>
-  );
-};
+    return (
+      <div>
+        {viewTypes.map(({ view: v, Icon }) => (
+          <Button
+            className={view === v && styles.active}
+            key={v}
+            theme="clean"
+            onClick={onClick(v)}
+          >
+            <Icon />
+          </Button>
+        ))}
+      </div>
+    );
+  }
+);

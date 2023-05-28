@@ -20,3 +20,12 @@ export const getArticlesHasMore = (state: StateSchema) =>
 
 export const getArticlesInited = (state: StateSchema) =>
   state.articlesPage?.inited;
+
+export const getArticlesOrder = (state: StateSchema) =>
+  state.articlesPage?.order ?? 'asc';
+
+export const getArticlesSort = (state: StateSchema) =>
+  state.articlesPage?.sort ?? 'createdAt';
+
+export const getArticlesSearch = (state: StateSchema) =>
+  state.articlesPage?.search ?? '';
